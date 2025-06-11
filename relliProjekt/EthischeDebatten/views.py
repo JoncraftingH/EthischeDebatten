@@ -54,7 +54,7 @@ def frage_detail(request, frage_id):
 
 @login_required
 def antworten_bewerten(request):
-    auswahl_antworen = SpielerAntwort.objects.exclude(benutzer=request.user).exclude(antwortbewertung__bewertender=request.user)
+    auswahl_antworen = SpielerAntwort.objects.exclude(benutzer=request.user).exclude(antwortbewertung_bewertender=request.user)
 
     if not auswahl_antworen.exists():
         return render(request, 'antworten_bewerten.html', {'keine_antwort': True})
